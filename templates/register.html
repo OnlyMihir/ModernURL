@@ -1,0 +1,125 @@
+{% extends 'HeaderFooter.html' %}
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            <li><a href="/">Home</a></li>
+            <li>Register</li>
+
+        </ul>
+
+        <h1 class="page_title">Register</h1>
+
+<!-- - - - - - - - - - - - - - Billing information - - - - - - - - - - - - - - - - -->
+
+<section class="section_offset">
+
+    <h3>2. Register</h3>
+
+    <div class="theme_box">
+
+        <a class="icon_btn button_dark_grey edit_button" href="#"><i class="icon-pencil"></i></a>
+
+        <form class="type_2" action="register" method="POST">
+            {% csrf_token %}
+            <ul>
+                
+                <li class="row">
+                    
+                    <div class="col-sm-6">
+                        
+                        <label for="first_name" class="required">First Name</label>
+                        <input type="text" name="first_name" id="first_name">
+
+                    </div><!--/ [col] -->
+
+                    <div class="col-sm-6">
+                        
+                        <label for="last_name" class="required">Last Name</label>
+                        <input type="text" name="last_name" id="last_name">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+                <li class="row">
+
+                    <div class="col-sm-6">
+                        
+                        <label for="email_address" class="required">User Name</label>
+                        <input type="text" name="username" id="username">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+                <li class="row">
+
+                    <div class="col-sm-6">
+                        
+                        <label for="email_address" class="required">Email Address</label>
+                        <input type="text" name="email_address" id="email_address">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+                <li class="row">
+
+                    <div class="col-sm-6">
+
+                        <label for="password" class="required">Password</label>
+                        <input type="password" name="password" id="password">
+
+                    </div><!--/ [col] -->
+
+                    <div class="col-sm-6">
+
+                        <label for="confirm" class="required">Confirm Password</label>
+                        <input type="password" name="confirmp" id="confirmp">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+            </ul>
+
+        
+
+    </div>
+
+    <footer class="bottom_box on_the_sides">
+
+        <div class="left_side">
+
+            <input type="submit" class="button_blue middle_btn">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+    </form>
+
+        <div class="right_side">
+
+            <span class="prompt">Required Fields</span>
+
+        </div>
+
+    </footer>
+
+</section><!--/ .section_offset -->
+
+<!-- - - - - - - - - - - - - - End of billing information - - - - - - - - - - - - - - - - -->
+</div></div>
+
+
+{% endblock %}

@@ -1,0 +1,89 @@
+{% extends 'HeaderFooter.html' %}
+
+{% block content %}
+
+<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+        <!-- - - - - - - - - - - - - - Breadcrumbs - - - - - - - - - - - - - - - - -->
+
+        <ul class="breadcrumbs">
+
+            <li><a href="/">Home</a></li>
+            <li>Shorten Links</li>
+
+        </ul>
+
+<!-- - - - - - - - - - - - - - Billing information - - - - - - - - - - - - - - - - -->
+
+<section class="section_offset">
+
+    <h3>Shorten Links</h3>
+
+    <div class="theme_box">
+
+        <a class="icon_btn button_dark_grey edit_button" href="#"><i class="icon-pencil"></i></a>
+
+        <form class="type_2" action="shortenurl" method="POST">
+            {% csrf_token %}
+            <ul>
+                
+                <li class="row">
+                    
+                    <div class="col-sm-6">
+                        
+                        <label for="first_name" class="required">Original URL</label>
+                        <input type="text" name="org_url" id="org_url">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+                <li class="row">
+
+                    <div class="col-sm-6">
+                        
+                        <label for="email_address" class="required">Short Description</label>
+                        <input type="text" name="desc" id="desc">
+
+                    </div><!--/ [col] -->
+
+                </li><!--/ .row -->
+
+               
+
+            </ul>
+
+        
+
+    </div>
+
+    <footer class="bottom_box on_the_sides">
+
+        <div class="left_side">
+
+            <input type="submit" class="button_blue middle_btn">
+            {% for message in messages %}
+            <h4>{{message}}</h4>
+            {% endfor %}
+        </div>
+    </form>
+
+        <div class="right_side">
+
+            <span class="prompt">Required Fields</span>
+
+        </div>
+
+    </footer>
+
+</section><!--/ .section_offset -->
+
+<!-- - - - - - - - - - - - - - End of billing information - - - - - - - - - - - - - - - - -->
+</div></div>
+
+
+{% endblock %}
