@@ -1,0 +1,561 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Basic page needs
+		============================================ -->
+		<title>ModernURL | Home</title>
+		<meta charset="utf-8">
+		<meta name="author" content="">
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+
+		<!-- Mobile specific metas
+		============================================ -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<!-- Favicon
+		============================================ -->
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/fav_icon.ico' %}">
+
+		<!-- Google web fonts
+		============================================ -->
+		<link href='http://fonts.googleapis.com/css?family=Roboto:400,400italic,300,300italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+		<!-- Libs CSS
+		============================================ -->
+		<link rel="stylesheet" href="{% static 'css/animate.css' %}">
+		<link rel="stylesheet" href="{% static 'css/fontello.css' %}">
+		<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+		
+		<!-- Theme CSS
+		============================================ -->
+		<link rel="stylesheet" href="{% static 'js/rs-plugin/css/settings.css' %}">
+		<link rel="stylesheet" href="{% static 'js/owlcarousel/owl.carousel.css' %}">
+		<link rel="stylesheet" href="{% static 'js/arcticmodal/jquery.arcticmodal.css' %}">
+		<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+		<!-- JS Libs
+		============================================ -->
+		<script src="{% static 'js/modernizr.js' %}"></script>
+
+		<!-- Old IE stylesheet
+		============================================ -->
+		<!--[if lte IE 9]>
+			<link rel="stylesheet" type="text/css" href="css/oldie.css">
+		<![endif]-->
+	</head>
+	<body class="front_page">
+
+		
+
+		<!-- - - - - - - - - - - - - - Main Wrapper - - - - - - - - - - - - - - - - -->
+
+		<div class="wide_layout">
+
+			<!-- - - - - - - - - - - - - - Header - - - - - - - - - - - - - - - - -->
+
+			<header id="header" class="type_5">
+
+				<!-- - - - - - - - - - - - - - Bottom part - - - - - - - - - - - - - - - - -->
+
+				<div class="bottom_part">
+
+					<div class="container">
+
+						<div class="row">
+
+							<div class="main_header_row">
+
+								<div class="col-sm-3">
+
+									<!-- - - - - - - - - - - - - - Logo - - - - - - - - - - - - - - - - -->
+
+									<a href="index.html" class="logo">
+
+										<img src="{% static 'images/logo.png' %}" alt="", height="74", width="226">
+
+									</a>
+
+									<!-- - - - - - - - - - - - - - End of logo - - - - - - - - - - - - - - - - -->
+
+								</div><!--/ [col]-->
+
+								<div class="col-lg-6 col-md-5 col-sm-5">
+
+								</div><!--/ [col]-->
+
+								<div class="col-lg-3 col-sm-4">
+
+									<div class="clearfix">
+
+									</div><!--/ .clearfix-->
+
+									<!-- - - - - - - - - - - - - - Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
+
+									<ul class="account_bar">
+
+
+										<style type="text/css">#skpbtn{display: none}</style>
+    <form action="{{orgurl}}" method="POST">
+            {% csrf_token %}
+    	<input type="submit" id="skpbtn" value="Skip Ad!" class="button_blue middle_btn">
+    	<font size="3" color="red">
+      	<p id="skipadtxt"></p>
+    <script type="text/javascript">
+		(function theLoop (i) {
+	  	setTimeout(function () {
+    	var text = "";
+    	if(i!=0){
+  		text += "Skip ad after " + i + " seconds.";
+		document.getElementById("skipadtxt").innerHTML = text; }
+		else{
+			document.getElementById("skpbtn").style.display="block";
+		document.getElementById("skipadtxt").innerHTML = "";
+
+		}
+   		if (i--) {          // If i > 0, keep going
+      	theLoop(i);       // Call the loop again, and pass it the current value of i
+    }
+  }, 1500);
+})(5);
+	</script>
+	</font>
+    </form>
+
+									</ul><!--/ .account_bar-->
+
+									<!-- - - - - - - - - - - - - - End Loginbox & Wishlist & Compare - - - - - - - - - - - - - - - - -->
+
+								</div><!--/ [col]-->
+
+							</div><!--/ .main_header_row-->
+
+						</div><!--/ .row-->
+
+					</div><!--/ .container-->
+
+				</div><!--/ .bottom_part -->
+
+				<!-- - - - - - - - - - - - - - End of bottom part - - - - - - - - - - - - - - - - -->
+
+				<!-- - - - - - - - - - - - - - Main navigation wrapper - - - - - - - - - - - - - - - - -->
+
+				<div id="main_navigation_wrap">
+
+					<div class="container">
+
+						<div class="row">
+
+							<div class="col-xs-12">
+
+								<!-- - - - - - - - - - - - - - Sticky container - - - - - - - - - - - - - - - - -->
+
+								<div class="sticky_inner type_2">
+
+									<!-- - - - - - - - - - - - - - Navigation item - - - - - - - - - - - - - - - - -->
+
+									<div class="nav_item">
+
+										<nav class="main_navigation">
+
+											<ul>
+
+												<li><a href="index.html">Home</a></li>
+												<li><a href="shop_my_account.html">My Account</a></li>
+												<li><a href="shop_shopping_cart.html">Shorten Link's</a></li>
+												<li><a href="shop_checkout.html">Checkout</a></li>
+												<li><a href="blog_v1.html">Blog</a></li>
+												<li><a href="additional_page_contact.html">Contact Us</a></li>
+												<li class="has_submenu">
+
+													<a href="index.html">Pages</a>
+
+													<!-- - - - - - - - - - - - - - Submenu (level 2) - - - - - - - - - - - - - - - - -->
+
+													<ul class="theme_menu submenu">
+														
+														<li class="has_submenu current">
+
+															<a href="index.html">Homepage Layouts</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="index.html">Home 1</a></li>
+																<li><a href="home_v2.html">Home 2</a></li>
+																<li><a href="home_v3.html">Home 3</a></li>
+																<li><a href="home_v4.html">Home 4</a></li>
+																<li class="current"><a href="home_v5.html">Home 5</a></li>
+																<li><a href="home_v6.html">Home 6</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="category_page_v1.html">Category Page Layouts</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="category_page_v1.html">Category page 1</a></li>
+																<li><a href="category_page_v2.html">Category page 2</a></li>
+																<li><a href="category_page_v3.html">Category page 3</a></li>
+																<li><a href="category_page_v4.html">Category page 4</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="product_page_v1.html">Product Page Layouts</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="product_page_v1.html">Product page 1</a></li>
+																<li><a href="product_page_v2.html">Product page 2</a></li>
+																<li><a href="product_page_v3.html">Product page 3</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="shop_shopping_cart.html">Other Shop Pages</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="shop_shopping_cart.html">Shopping cart</a></li>
+																<li><a href="shop_checkout.html">Checkout</a></li>
+																<li><a href="shop_wishlist.html">Wishlist</a></li>
+																<li><a href="shop_product_comparison.html">Product Comparison</a></li>
+																<li><a href="shop_my_account.html">My Account</a></li>
+																<li><a href="shop_manufacturers.html">Manufacturers</a></li>
+																<li><a href="shop_manufacturer_page.html">Manufacturer Page</a></li>
+																<li><a href="shop_orders_list.html">Order List</a></li>
+																<li><a href="shop_order_page.html">Order Page</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="additional_page_about.html">Additional Pages</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="additional_page_about.html">About Us</a></li>
+																<li><a href="additional_page_contact.html">Contact Us</a></li>
+																<li><a href="additional_page_faq.html">FAQ</a></li>
+																<li><a href="additional_page_404.html">404 Page</a></li>
+																<li><a href="additional_page_sitemap.html">Sitemap</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="extra_stuff_elements.html">Extra Stuff</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="extra_stuff_elements.html">Elements</a></li>
+																<li><a href="extra_stuff_typography.html">Typography</a></li>
+																<li><a href="extra_stuff_columns.html">Columns</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+														<li class="has_submenu">
+
+															<a href="blog_v1.html">Blog Pages</a>
+
+															<!-- - - - - - - - - - - - - - Submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+															<ul class="theme_menu submenu">
+
+																<li><a href="blog_v1.html">Blog v1</a></li>
+																<li><a href="blog_v2.html">Blog v2</a></li>
+																<li><a href="blog_v3.html">Blog v3</a></li>
+																<li><a href="blog_post_v1.html">Blog Post v1</a></li>
+																<li><a href="blog_post_v2.html">Blog Post v2</a></li>
+
+															</ul>
+
+															<!-- - - - - - - - - - - - - - End submenu (level 3) - - - - - - - - - - - - - - - - -->
+
+														</li>
+
+													</ul>
+
+													<!-- - - - - - - - - - - - - - End submenu (level 2) - - - - - - - - - - - - - - - - -->
+
+												</li>
+
+											</ul>
+
+										</nav><!--/ .main_navigation-->
+
+									</div>
+
+									<!-- - - - - - - - - - - - - - End of navigation item - - - - - - - - - - - - - - - - -->
+
+
+								</div><!--/ .sticky_inner -->
+
+								<!-- - - - - - - - - - - - - - End of sticky container - - - - - - - - - - - - - - - - -->
+
+							</div><!--/ [col]-->
+
+						</div><!--/ .row-->
+
+					</div><!--/ .container-->
+
+				</div><!--/ .main_navigation_wrap-->
+
+				<!-- - - - - - - - - - - - - - End of main navigation wrapper - - - - - - - - - - - - - - - - -->
+
+			</header>
+			
+			<!-- - - - - - - - - - - - - - End Header - - - - - - - - - - - - - - - - -->
+
+
+<!-- - - - - - - - - - - - - - Page Wrapper - - - - - - - - - - - - - - - - -->
+
+<div class="secondary_page_wrapper">
+
+    <div class="container">
+
+
+<!-- - - - - - - - - - - - - - Billing information - - - - - - - - - - - - - - - - -->
+
+<section class="section_offset">
+
+    <div class="theme_box">
+
+        <iframe height="768" width="1100" src="https://www.wikipedia.com"><p>Your Browser Does Not Support Iframe.<p></iframe> 
+    </div>
+
+    
+
+</section><!--/ .section_offset -->
+
+<!-- - - - - - - - - - - - - - End of billing information - - - - - - - - - - - - - - - - -->
+</div></div>
+
+<!-- - - - - - - - - - - - - - Footer - - - - - - - - - - - - - - - - -->
+
+<footer id="footer">
+
+    <!-- - - - - - - - - - - - - - Footer section- - - - - - - - - - - - - - - - -->
+
+    <div class="footer_section_2">
+
+        <div class="container">
+            
+            <div class="row">
+                
+                <!-- - - - - - - - - - - - - - Newsletter - - - - - - - - - - - - - - - - -->
+
+                <div class="col-md-6 col-sm-7">
+
+                    <section class="streamlined_type_2">
+                    
+                        <h4 class="streamlined_title">Sign up to our newsletter</h4>
+
+                        <form class="newsletter subscribe" novalidate>
+
+                            <input type="email" name="sc_email" placeholder="Enter your email address">
+
+                            <button class="button_blue def_icon_btn"></button>
+
+                        </form>
+
+                    </section><!--/ .streamlined-->
+
+                </div><!--/ [col]-->
+                
+                <!-- - - - - - - - - - - - - - End newsletter - - - - - - - - - - - - - - - - -->
+
+                <!-- - - - - - - - - - - - - - Follow us - - - - - - - - - - - - - - - - -->
+
+                <div class="col-md-6 col-sm-5">
+
+                    <section class="streamlined">
+                    
+                        <h4 class="streamlined_title">Follow Us</h4>
+
+                        <!-- - - - - - - - - - - - - - Social icon's list - - - - - - - - - - - - - - - - -->
+
+                        <ul class="social_btns">
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_facebook tooltip_container"><i class="icon-facebook-1"></i><span class="tooltip top">Facebook</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_twitter tooltip_container"><i class="icon-twitter"></i><span class="tooltip top">Twitter</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_googleplus tooltip_container"><i class="icon-gplus-2"></i><span class="tooltip top">GooglePlus</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_pinterest tooltip_container"><i class="icon-pinterest-3"></i><span class="tooltip top">Pinterest</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_flickr tooltip_container"><i class="icon-flickr-1"></i><span class="tooltip top">Flickr</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_youtube tooltip_container"><i class="icon-youtube"></i><span class="tooltip top">Youtube</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_vimeo tooltip_container"><i class="icon-vimeo-2"></i><span class="tooltip top">Vimeo</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_instagram tooltip_container"><i class="icon-instagram-4"></i><span class="tooltip top">Instagram</span></a>
+                            </li>
+
+                            <li>
+                                <a href="#" class="icon_btn middle_btn social_linkedin tooltip_container"><i class="icon-linkedin-5"></i><span class="tooltip top">LinkedIn</span></a>
+                            </li>
+
+                        </ul>
+                        
+                        <!-- - - - - - - - - - - - - - End social icon's list - - - - - - - - - - - - - - - - -->
+
+                    </section><!--/ .streamlined-->
+                
+                </div><!--/ [col]-->
+                
+                <!-- - - - - - - - - - - - - - End follow us - - - - - - - - - - - - - - - - -->
+
+            </div><!--/ .row-->
+
+        </div><!--/ .container-->
+
+    </div><!--/ .footer_section_2-->
+
+    <!-- - - - - - - - - - - - - - End footer section- - - - - - - - - - - - - - - - -->
+
+    <hr>
+
+    <hr>
+
+    <!-- - - - - - - - - - - - - - Footer section - - - - - - - - - - - - - - - - -->
+
+    <div class="footer_section_3 align_center">
+
+        <div class="container">
+
+            <p class="footer_message">This is custom text. Vestibulum sed ante. Donec sagittis euismod purus. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantim, totam rem aperiam, eaque ipse quae ab illo inventore veritatis.</p>
+
+            <!-- - - - - - - - - - - - - - Payments - - - - - - - - - - - - - - - - -->
+
+            <ul class="payments">
+
+                <li><img src="{% static 'images/payment_1.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_2.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_3.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_4.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_5.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_6.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_7.png' %}" alt=""></li>
+                <li><img src="{% static 'images/payment_8.png' %}" alt=""></li>
+
+            </ul>
+            
+            <!-- - - - - - - - - - - - - - End of payments - - - - - - - - - - - - - - - - -->
+
+            <!-- - - - - - - - - - - - - - Footer navigation - - - - - - - - - - - - - - - - -->
+
+            <nav class="footer_nav">
+
+                <ul class="bottombar">
+
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Features</a></li>
+                    <li><a href="#">Value for Enterprises</a></li>
+                    <li><a href="#">Value for Individuals</a></li>
+
+                </ul>
+
+            </nav>
+            
+            <!-- - - - - - - - - - - - - - End of footer navigation - - - - - - - - - - - - - - - - -->
+
+            <p class="copyright">&copy; 2019 <a href="index.html">ModernURL</a>. All Rights Reserved.</p>
+
+        </div><!--/ .container-->
+
+    </div><!--/ .footer_section-->
+
+    <!-- - - - - - - - - - - - - - End footer section - - - - - - - - - - - - - - - - -->
+
+</footer>
+
+<!-- - - - - - - - - - - - - - End Footer - - - - - - - - - - - - - - - - -->
+
+</div><!--/ [layout]-->
+
+<!-- - - - - - - - - - - - - - End Main Wrapper - - - - - - - - - - - - - - - - -->
+
+
+<!-- Include Libs & Plugins
+============================================ -->
+<script src="{% static 'js/jquery-2.1.1.min.js' %}"></script>
+<script src="{% static 'js/queryloader2.min.js' %}"></script>
+<script src="{% static 'js/rs-plugin/js/jquery.themepunch.tools.min.js' %}"></script>
+<script src="{% static 'js/rs-plugin/js/jquery.themepunch.revolution.min.js' %}"></script>
+<script src="{% static 'js/jquery.appear.js' %}"></script>
+<script src="{% static 'js/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.plugin.min.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.min.js' %}"></script>
+<script src="{% static 'js/arcticmodal/jquery.arcticmodal.js' %}"></script>
+<script src="{% static 'twitter/jquery.tweet.min.js' %}"></script>
+<script src="{% static 'js/colorpicker/colorpicker.js' %}"></script>
+<script src="{% static 'js/retina.min.js' %}"></script>
+
+<!-- Theme files
+============================================ -->
+<script src="{% static 'js/theme.plugins.js' %}"></script>
+<script src="{% static 'js/theme.core.js' %}"></script>
+
+</body>
+</html>
