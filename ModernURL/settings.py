@@ -153,3 +153,14 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 MEDIA_URL = "/media/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "live-static-files", "media-root")
+
+
+
+
+
+'''
+Git Commands
+git add -A
+git commit -m "Comment"
+git push heroku master
+'''
