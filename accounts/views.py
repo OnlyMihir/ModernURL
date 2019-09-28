@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from accounts.models import IUser
 from ipware import get_client_ip
+from django.contrib.gis.geoip2 import GeoIP2
 
 # Create your views here.
 def register(request):
@@ -52,7 +53,13 @@ def login(request):
             #We got the client's IP address
             if is_routable:
                 #i, r = get_client_ip(request, request_header_order=['X_FORWARDED_FOR'])
-                messages.info(request,client_ip)
+                g = GeoIP2()
+                ip_d1=g.country(client_ip)
+                ip_d2=g.city(client_ip)
+                ip_d3=g.country_code(client_ip)
+                ip_d4=g.country_name(client_ip)
+                ip_d=ip_d1+":"+ip_d2+":"+ip_d3+":"+ip_d4
+                messages.info(request,ip_d)
                 # The client's IP address is publicly routable on the Internet
             else:
                 messages.info(request,"The client's IP address is private")

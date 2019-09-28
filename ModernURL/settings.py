@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['modernurl.herokuapp.com','localhost']
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'Modern',
     'accounts',
     'services',
