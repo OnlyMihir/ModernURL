@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from accounts.models import IUser
+from ipware import get_client_ip
 
 # Create your views here.
 def register(request):
@@ -44,6 +45,18 @@ def login(request):
             messages.info(request,'invalid credentials')
             return redirect('login')
     else:
+        client_ip, is_routable = get_client_ip(request)
+        if client_ip is None:
+             messages.info(request,'Unable to get the clients IP address')
+        else:
+            #We got the client's IP address
+            if is_routable:
+                i, r = get_client_ip(request, request_header_order=['X_FORWARDED_FOR', 'REMOTE_ADDR'])
+                messages.info(request,i+"  :    "+r)
+                # The client's IP address is publicly routable on the Internet
+            else:
+                messages.info(request,"The client's IP address is private")
+        # Order of precedence is (Public, Private, Loopback, None)
         return render(request, 'login.html')
 
 def logout(request):
