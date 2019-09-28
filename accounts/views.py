@@ -51,8 +51,8 @@ def login(request):
         else:
             #We got the client's IP address
             if is_routable:
-                i, r = get_client_ip(request, request_header_order=['X_FORWARDED_FOR', 'REMOTE_ADDR'])
-                messages.info(request,i+"  :    "+r)
+                #i, r = get_client_ip(request, request_header_order=['X_FORWARDED_FOR'])
+                messages.info(request,client_ip)
                 # The client's IP address is publicly routable on the Internet
             else:
                 messages.info(request,"The client's IP address is private")
