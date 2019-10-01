@@ -86,8 +86,9 @@ DATABASES = {
         default=config('DATABASE_URL')
     )
 }
-
 '''
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -174,4 +175,5 @@ Git Commands
 git add -A
 git commit -m "Comment"
 git push heroku master
+heroku pg:credentials:url
 '''
