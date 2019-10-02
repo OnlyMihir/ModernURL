@@ -33,7 +33,7 @@ def shurl(request,sh_id):
                 city=ls[1]
             if(str(ls[0])=='Postal Code'):
                 postal_code=ls[1]
-        data = ent_url_data(sh_url=sh_id,continent=continent,state_region=state_region,country=country,city=city,postal_code=postal_code,date_time=datetime.now)
+        data = ent_url_data(sh_url=sh_id,continent=continent,state_region=state_region,country=country,city=city,postal_code=postal_code,date_time=datetime.today)
         data.save()
         url_data=shortenedurl.objects.get(sh_url=sh_id,is_ent_user=True)
         return redirect(url_data.org_url)

@@ -19,5 +19,5 @@ class ent_url_data(models.Model):
     country = models.CharField(max_length=100,blank=True,null=True)
     city = models.CharField(max_length=100,blank=True,null=True)
     postal_code = models.CharField(max_length=100,blank=True,null=True)
-    date_time = models.DateTimeField(auto_now_add=True, blank=True)
+    date_time = models.DateTimeField(default=datetime.today, blank=True)
     objects = models.Manager()
