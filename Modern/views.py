@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from services.models import shortenedurl,ent_url_data
 from datetime import datetime
 from ipware import get_client_ip
-import requests as rq
+import requests
 from bs4 import BeautifulSoup
 
 # Create your views here.
@@ -12,28 +12,31 @@ def home(request):
 def shurl(request,sh_id):
     if shortenedurl.objects.filter(sh_url=sh_id,is_ent_user=True).exists():
         client_ip, is_routable = get_client_ip(request)
-        url="https://whatismyipaddress.com/ip/"+client_ip
-        r=rq.get(url)
-        soup = BeautifulSoup(r.content, 'html.parser')
-        table = soup.findAll("table")
         continent=''
         state_region=''
         country=''
         city=''
         postal_code=''
-        for row in table[1].findAll("tr"):
-            ls=row.get_text().split(':')
-            if(str(ls[0])=='Continent'):
-                continent=ls[1]
-            if(str(ls[0])=='State/Region'):
-                state_region=ls[1]
-            if(str(ls[0])=='Country'):
-                country=ls[1]
-            if(str(ls[0])=='City'):
-                city=ls[1]
-            if(str(ls[0])=='Postal Code'):
-                postal_code=ls[1]
-        data = ent_url_data(sh_url=sh_id,continent=continent,state_region=state_region,country=country,city=city,postal_code=postal_code,date_time=datetime.today)
+        time=''
+        payload = {"api-key": "test"}
+        url='https://api.ipdata.co/'
+        url=url+str(client_ip)
+        response = requests.get(url, params=payload).json()
+        for key in response:
+            if key in 'continent_name':
+                continent = response[key]
+            if key in 'region':
+                state_region = response[key]
+            if key in 'city':
+                city = response[key]
+            if key in 'country_name':
+                country = response[key]
+            if key in 'postal':
+                postal_code = response[key]
+            if key in 'time_zone':
+                t=response[key]
+                time=t['current_time']
+        data = ent_url_data(sh_url=sh_id,continent=continent,state_region=state_region,country=country,city=city,postal_code=postal_code,date_time=time)
         data.save()
         url_data=shortenedurl.objects.get(sh_url=sh_id,is_ent_user=True)
         return redirect(url_data.org_url)
