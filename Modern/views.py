@@ -14,7 +14,7 @@ def shurl(request,sh_id):
     if shortenedurl.objects.filter(sh_url=sh_id,is_ent_user=True).exists():
         client_ip, is_routable = get_client_ip(request)
         response = ipdata.lookup(client_ip, fields=['continent_name','country_name','region','city','postal'])
-        data = ent_url_data(sh_url=sh_id,continent=response['continent_name'],state_region=response['region'],country=response['country_name'],city=response['city'],postal_code=response['postal'],date_time=datetime.today())
+        data = ent_url_data(sh_url=sh_id,continent=response['continent_name'],state_region=response['region'],country=response['country_name'],city=response['city'],postal_code=response['postal'])
         data.save()
         url_data=shortenedurl.objects.get(sh_url=sh_id,is_ent_user=True)
         return redirect(url_data.org_url)

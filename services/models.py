@@ -1,5 +1,5 @@
 from django.db import models
-from datetime import datetime
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -19,5 +19,5 @@ class ent_url_data(models.Model):
     country = models.CharField(max_length=100,blank=True,null=True)
     city = models.CharField(max_length=100,blank=True,null=True)
     postal_code = models.CharField(max_length=100,blank=True,null=True)
-    date_time = models.CharField(max_length=150,blank=True,null=True)
+    date_time = models.DateTimeField(default=now)
     objects = models.Manager()
