@@ -18,7 +18,7 @@ def shurl(request,sh_id):
         city=''
         postal_code=''
         time=''
-        payload = {"api-key": "test"}
+        payload = {"api-key": "6e5377b93bec490ff6500b084cba36f1c025a0c9057215a082636d3d"}
         url='https://api.ipdata.co/'
         url=url+str(client_ip)
         response = requests.get(url, params=payload).json()
