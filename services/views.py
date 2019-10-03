@@ -60,9 +60,9 @@ def myaccount(request):
 def mylinks(request):
     user_id = request.session['user_id']
     if(request.session['is_ent_user']==False):
-        url_data=shortenedurl.objects.get(user_id=user_id,is_ent_user=False)
+        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=False).values()
     elif(request.session['is_ent_user']==True):
-        url_data=shortenedurl.objects.get(user_id=user_id,is_ent_user=True)
+        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=True).values()
     return render(request,'MyLinks.html',{'user_data':url_data})
 
 def linkstats(request):
