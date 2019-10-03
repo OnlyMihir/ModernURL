@@ -58,12 +58,11 @@ def myaccount(request):
         return render(request, 'MyAccount.html',dict)
 
 def mylinks(request):
+    user_id = request.session['user_id']
     if(request.session['is_ent_user']==False):
-        user_id = request.session['user_id']
-        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=False).values()
+        url_data=shortenedurl.objects.get(user_id=user_id,is_ent_user=False)
     elif(request.session['is_ent_user']==True):
-        user_id = request.session['user_id']
-        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=True).values()
+        url_data=shortenedurl.objects.get(user_id=user_id,is_ent_user=True)
     return render(request,'MyLinks.html',{'user_data':url_data})
 
 def linkstats(request):
