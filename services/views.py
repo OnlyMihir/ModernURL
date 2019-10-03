@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from services.models import shortenedurl
+from services.models import shortenedurl,ent_url_data
 import random,string
-from accounts.models import IUser
+from accounts.models import IUser,EUser
 
 # Create your views here.
 def shortenurl(request):
@@ -42,17 +42,32 @@ def shortenurl(request):
                         flag=1
                 data = shortenedurl(org_url=org_url,sh_url=sh_url,user_id=user_id,is_ent_user=False,desc=desc)
                 data.save()
-                return redirect('/mylinks')
+                return redirect('/services/mylinks')
     else:
         return render(request, 'ShortenLinks.html')
 
 def myaccount(request):
-    user_id = request.session['user_id']
-    user_data=IUser.objects.get(id=user_id)
-    dict={'email':user_data.email}
-    return render(request, 'MyAccount.html',dict)
+    if(request.session['is_ent_user']==False):
+        user_id = request.session['user_id']
+        user_data=IUser.objects.get(id=user_id)
+        dict={'email':user_data.email}
+    else:
+        user_id = request.session['user_id']
+        user_data=EUser.objects.get(id=user_id)
+        dict={'email':user_data.email}
+        return render(request, 'MyAccount.html',dict)
 
 def mylinks(request):
-    user_id = request.session['user_id']
-    user_data=shortenedurl.objects.filter(user_id=user_id).values()
+    if(request.session['is_ent_user']==False):
+        user_id = request.session['user_id']
+        user_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=False).values()
+    else:
+        user_id = request.session['user_id']
+        user_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=True).values()
     return render(request,'MyLinks.html',{'user_data':user_data})
+
+def linkstats(request):
+    if request.method=='POST' and 'btnform1' in request.POST:
+        return render(request,'LinkStats.html')
+    if request.method=='POST' and 'btnform2' in request.POST:
+        return redirect('/')

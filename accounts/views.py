@@ -39,37 +39,18 @@ def login(request):
             user_data=IUser.objects.get(email=email,password=password)
             request.session['user_id'] = user_data.id
             request.session['user_name'] = user_data.username
+            request.session['is_ent_user'] = False
             return redirect('/')
         else:
             messages.info(request,'invalid credentials')
             return redirect('login')
     else:
-        '''
-        client_ip, is_routable = get_client_ip(request)
-        url="https://whatismyipaddress.com/ip/"+client_ip
-        r=rq.get(url)
-        soup = BeautifulSoup(r.content, 'html.parser')
-        table = soup.findAll("table")
-        strr=''
-        for row in table[1].findAll("tr"):
-            ls=row.get_text().split(':')
-            if(str(ls[0])=='Continent'):
-                strr=strr+' '+(ls[1])
-            if(str(ls[0])=='State/Region'):
-                strr=strr+' '+(ls[1])
-            if(str(ls[0])=='Country'):
-                strr=strr+' '+(ls[1])
-            if(str(ls[0])=='City'):
-                strr=strr+' '+(ls[1])
-            if(str(ls[0])=='Postal Code'):
-                strr=strr+' '+(ls[1])
-        messages.info(request,strr)
-        '''
         return render(request, 'login.html')
 
 def logout(request):
     del request.session['user_id']
     del request.session['user_name']
+    del request.session['is_ent_user']
     return redirect('/')
 
 def registerent(request):
