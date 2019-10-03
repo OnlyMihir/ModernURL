@@ -24,7 +24,11 @@
 						</aside><!--/ [col]-->
 
 						<main class="col-md-9 col-sm-8">
-
+                            <style>
+                                .col-md-9 {
+                                    width: 100%;
+                                }
+                                </style>
 							<h1>My Links</h1>
 
 							<header class="top_box on_the_sides">
@@ -79,11 +83,13 @@
 									<thead>
 										
 										<tr>
-                                            
+                                            <th class="product_title_col"></th>
                                             <th class="product_title_col">Shortened URL</th>
-											<th class="product_title_col">Original URL</th>
-											<th class="product_title_col">Description</th>
-											<th class="product_title_col">Action</th>
+											<th class="product_title_col">Continent</th>
+											<th class="product_title_col">State/Region</th>
+                                            <th class="product_title_col">Country</th>
+                                            <th class="product_title_col">City</th>
+                                            <th class="product_title_col">Postal Code</th>
 
 										</tr>
 
@@ -97,7 +103,7 @@
 
                                                     <td data-title="Product Name and Category">
 												
-                                                            <a href="#" class="product_title">{{data.sh_url}}</a>
+                                                            <a href="#" class="product_title">{{forloop.counter}}</a>
             
                                                         </td>
 

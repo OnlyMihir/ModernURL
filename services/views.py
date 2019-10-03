@@ -60,14 +60,15 @@ def myaccount(request):
 def mylinks(request):
     if(request.session['is_ent_user']==False):
         user_id = request.session['user_id']
-        user_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=False).values()
-    else:
+        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=False).values()
+    elif(request.session['is_ent_user']==True):
         user_id = request.session['user_id']
-        user_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=True).values()
-    return render(request,'MyLinks.html',{'user_data':user_data})
+        url_data=shortenedurl.objects.filter(user_id=user_id,is_ent_user=True).values()
+    return render(request,'MyLinks.html',{'user_data':url_data})
 
 def linkstats(request):
     if request.method=='POST' and 'btnform1' in request.POST:
-        return render(request,'LinkStats.html')
+        url_data=ent_url_data.objects.filter(sh_url=request.POST['link_id']).values()
+        return render(request,'LinkStats.html',{'user_data':url_data})
     if request.method=='POST' and 'btnform2' in request.POST:
         return redirect('/')
